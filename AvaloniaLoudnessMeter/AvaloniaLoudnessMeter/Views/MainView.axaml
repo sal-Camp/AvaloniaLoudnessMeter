@@ -1,0 +1,271 @@
+<UserControl
+    x:Class="AvaloniaLoudnessMeter.Views.MainView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:AvaloniaLoudnessMeter.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:AvaloniaLoudnessMeter.ViewModels"
+    d:DesignHeight="630"
+    d:DesignWidth="800"
+    x:DataType="vm:MainViewModel"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <UserControl.Styles>
+        <Style Selector="Button.small">
+            <Setter Property="Background" Value="{DynamicResource BrightBlueBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="Padding" Value="7, 2" />
+        </Style>
+        <Style Selector="Button:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource BrightBlueHoverBrush}" />
+            <Setter Property="TextBlock.Foreground" Value="White" />
+        </Style>
+    </UserControl.Styles>
+
+    <Grid RowDefinitions="Auto, *, Auto">
+        <!--  Title bar  -->
+        <Grid
+            Grid.Row="0"
+            Height="40"
+            Background="{DynamicResource MediumGrayBrush}"
+            ColumnDefinitions="Auto, Auto, *, Auto, Auto">
+
+            <Grid.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Width" Value="45" />
+                </Style>
+                <Style Selector="Button:pointerover /template/ ContentPresenter">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="RenderTransform" Value="scale(1.11)" />
+                </Style>
+                <Style Selector="Button /template/ ContentPresenter">
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" />
+                        </Transitions>
+                    </Setter>
+                </Style>
+            </Grid.Styles>
+
+            <Button Grid.Column="0">
+                <Image>
+                    <Image.Source>
+                        <SvgImage Source="/Assets/Monitor.svg" />
+                    </Image.Source>
+                </Image>
+            </Button>
+            <Button Grid.Column="1">
+                <Image>
+                    <Image.Source>
+                        <SvgImage Source="/Assets/Lock.svg" />
+                    </Image.Source>
+                </Image>
+            </Button>
+            <StackPanel
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Label
+                    Content="{Binding BoldTitle}"
+                    FontSize="24"
+                    FontWeight="Black" />
+                <Label Content="{Binding RegularTitle}" FontSize="24" />
+            </StackPanel>
+            <Button Grid.Column="3">
+                <Image>
+                    <Image.Source>
+                        <SvgImage Source="/Assets/Export.svg" />
+                    </Image.Source>
+                </Image>
+            </Button>
+            <Button Grid.Column="4">
+                <Image>
+                    <Image.Source>
+                        <SvgImage Source="/Assets/Cog.svg" />
+                    </Image.Source>
+                </Image>
+            </Button>
+
+        </Grid>
+
+        <!--  Main area  -->
+        <Grid
+            Grid.Row="1"
+            Background="#1a1c20"
+            ColumnDefinitions="Auto, Auto, *">
+
+            <!--  Volume Bar  -->
+            <Grid
+                Grid.Column="0"
+                Width="150"
+                Margin="0,20"
+                RowDefinitions="*, Auto, Auto">
+
+                <!--  Volume Meter Gauge  -->
+                <Grid
+                    Grid.Row="0"
+                    Margin="10,0"
+                    ColumnDefinitions="Auto, *, Auto, Auto"
+                    RowDefinitions="3*,3*,3*,9*,5*,4*,9*,9*,9*,6*,Auto">
+
+                    <Grid.Styles>
+                        <Style Selector="Label">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                            <Setter Property="Padding" Value="0" />
+                        </Style>
+                    </Grid.Styles>
+
+                    <Label Grid.Row="0" Grid.Column="0">0 —</Label>
+                    <Label Grid.Row="1" Grid.Column="0">-3 —</Label>
+                    <Label Grid.Row="2" Grid.Column="0">-6 —</Label>
+                    <Label Grid.Row="3" Grid.Column="0">-9 —</Label>
+                    <Label Grid.Row="4" Grid.Column="0">-18 —</Label>
+                    <Label Grid.Row="5" Grid.Column="0">-23 —</Label>
+                    <Label Grid.Row="6" Grid.Column="0">-27 —</Label>
+                    <Label Grid.Row="7" Grid.Column="0">-36 —</Label>
+                    <Label Grid.Row="8" Grid.Column="0">-45 —</Label>
+                    <Label Grid.Row="9" Grid.Column="0">-54 —</Label>
+                    <Label Grid.Row="10" Grid.Column="0" />
+
+                    <!--  Volume Bar  -->
+                    <Grid
+                        Grid.Row="0"
+                        Grid.RowSpan="11"
+                        Grid.Column="1"
+                        Width="20"
+                        RowDefinitions="23*, 37*">
+                        <Rectangle
+                            Grid.Row="0"
+                            Width="20"
+                            Margin="0,8,0,-8"
+                            Fill="#b05c4e" />
+                        <Rectangle
+                            Grid.Row="1"
+                            Width="20"
+                            Margin="0,8,0,0"
+                            Fill="White" />
+                    </Grid>
+
+                    <Label Grid.Row="0" Grid.Column="2">—</Label>
+                    <Label Grid.Row="1" Grid.Column="2">—</Label>
+                    <Label Grid.Row="2" Grid.Column="2">—</Label>
+                    <Label Grid.Row="3" Grid.Column="2">—</Label>
+                    <Label Grid.Row="4" Grid.Column="2">—</Label>
+                    <Label Grid.Row="5" Grid.Column="2">—</Label>
+                    <Label Grid.Row="6" Grid.Column="2">—</Label>
+                    <Label Grid.Row="7" Grid.Column="2">—</Label>
+                    <Label Grid.Row="8" Grid.Column="2">—</Label>
+                    <Label Grid.Row="9" Grid.Column="2">—</Label>
+                    <Label Grid.Row="10" Grid.Column="2" />
+
+                    <!--  Arrow  -->
+                    <Canvas
+                        Grid.Row="0"
+                        Grid.RowSpan="11"
+                        Grid.Column="3"
+                        Width="20">
+                        <Rectangle
+                            Canvas.Top="0"
+                            Width="20"
+                            Height="20"
+                            Fill="White" />
+                    </Canvas>
+
+                </Grid>
+
+                <!--  LUFS Label  -->
+                <Label
+                    Grid.Row="1"
+                    Margin="0,5"
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    Foreground="White">
+                    LUFS
+                </Label>
+
+                <!--  Volume Bar Buttons  -->
+                <StackPanel
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,5,0"
+                        Padding="5"
+                        Classes="small"
+                        CornerRadius="50">
+                        <Image>
+                            <Image.Source>
+                                <SvgImage Source="/Assets/DoubleArrow.svg" />
+                            </Image.Source>
+                        </Image>
+                    </Button>
+                    <Button Classes="small">INT-LRA</Button>
+                </StackPanel>
+            </Grid>
+
+            <!--  Details Panel  -->
+            <StackPanel
+                Grid.Column="1"
+                Width="170"
+                Margin="0,15,10,15">
+                <controls:LargeLabelControl SmallText="SHORT TERM" />
+                <controls:LargeLabelControl Background="{DynamicResource LightBlueBrush}" SmallText="INTEGRATED" />
+                <controls:LargeLabelControl SmallText="LOUDNESS RANGE" />
+                <controls:LargeLabelControl SmallText="REALTIME DYNAMICS" />
+                <controls:LargeLabelControl Margin="0,0,0,13" SmallText="AVG. DYNAMIC (PLR)" />
+
+                <controls:LargeLabelControl Classes="button" SmallText="MOMENTARY MAX" />
+                <controls:LargeLabelControl Classes="button" SmallText="SHORT TERM MAX" />
+                <controls:LargeLabelControl
+                    Margin="0,0,0,3"
+                    Classes="button"
+                    SmallText="TRUE PEAK MAX" />
+
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Margin="0,0,20,0" Classes="small">AUTO</Button>
+                    <Button
+                        Background="{DynamicResource FadedRedBrush}"
+                        Classes="small"
+                        FontFamily="Arial"
+                        FontSize="20">
+                        X
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <Rectangle Grid.Column="2" Fill="Black" />
+        </Grid>
+
+        <!--  Bottom bar  -->
+        <Grid
+            Grid.Row="2"
+            Margin="8"
+            ColumnDefinitions="Auto, Auto, *, Auto, Auto, Auto, Auto, Auto">
+            <Button Grid.Column="0" Margin="0,0,8,0">Stereo</Button>
+            <Button Grid.Column="1" Margin="0,0,8,0">Youtube</Button>
+            <Button Grid.Column="3">10 Sec</Button>
+            <Button Grid.Column="4">CONTINUOUS</Button>
+            <Rectangle
+                Grid.Column="5"
+                Width="30"
+                Fill="Orange" />
+            <Rectangle
+                Grid.Column="6"
+                Width="30"
+                Fill="OrangeRed" />
+
+        </Grid>
+    </Grid>
+</UserControl>

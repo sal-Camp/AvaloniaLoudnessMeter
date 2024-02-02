@@ -1,0 +1,17 @@
+<Window
+    x:Class="AvaloniaLoudnessMeter.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:AvaloniaLoudnessMeter.Views"
+    xmlns:vm="using:AvaloniaLoudnessMeter.ViewModels"
+    Title="AvaloniaLoudnessMeter"
+    Width="1048"
+    Height="630"
+    d:DesignHeight="630"
+    d:DesignWidth="1048"
+    Icon="/Assets/avalonia-logo.ico"
+    mc:Ignorable="d">
+    <views:MainView />
+</Window>
