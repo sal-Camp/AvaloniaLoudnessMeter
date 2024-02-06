@@ -1,0 +1,22 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AvaloniaLoudnessMeter.Controls">
+    <Design.PreviewWith>
+        <controls:AnimatedPopup>
+            <Button Content="My button" />
+        </controls:AnimatedPopup>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|AnimatedPopup">
+        <!--  Set Defaults  -->
+        <Setter Property="ZIndex" Value="10" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Content="{TemplateBinding Content}" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter/App.axaml" value="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter.Browser/AvaloniaLoudnessMeter.Browser.csproj" />
+        <entry key="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter/Controls/AnimatedPopup.axaml" value="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter.Desktop/AvaloniaLoudnessMeter.Desktop.csproj" />
         <entry key="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter/Controls/LargeLabelControl.axaml" value="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter.Desktop/AvaloniaLoudnessMeter.Desktop.csproj" />
         <entry key="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter/Styles/AppDefaultStyles.axaml" value="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter.Browser/AvaloniaLoudnessMeter.Browser.csproj" />
         <entry key="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter/Views/MainView.axaml" value="AvaloniaLoudnessMeter/AvaloniaLoudnessMeter.Desktop/AvaloniaLoudnessMeter.Desktop.csproj" />
